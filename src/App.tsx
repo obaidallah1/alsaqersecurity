@@ -103,28 +103,7 @@ function App() {
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
   // Define your services with images
-  const services = [
-    {
-      title: "Trained Teams",
-      description: "Our security teams undergo intensive and certified training to ensure they provide the highest level of professional services. This rigorous training equips them with the skills necessary to handle various security situations effectively and efficiently.",
-      image: "/img/service-1.jpg",
-    },
-    {
-      title: "24/7 Availability",
-      description: "We provide round-the-clock security services to ensure complete protection at all times. With our dedicated team available 24/7, you can have peace of mind knowing that your safety is our top priority, day or night.",
-      image: "/img/service-2.jpg",
-    },
-    {
-      title: "Tailored Solutions",
-      description: "We design innovative security solutions tailored to meet the specific needs of different sectors. Whether it's commercial, residential, or public safety, our customized approaches ensure that we address the unique challenges faced by each client.",
-      image: "/img/service-3.jpg",
-    },
-    {
-      title: "Proven Experience",
-      description: "With over 25 years of experience in civil security, we have established ourselves as leaders in the industry. Our extensive background allows us to understand and adapt to the evolving security landscape, ensuring that our clients receive the best protection possible.",
-      image: "/img/service-4.jpg",
-    },
-  ];
+  
 
   return (
     <div dir={language === "ar" ? "rtl" : "ltr"} className="font-sans">
