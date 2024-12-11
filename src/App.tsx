@@ -24,7 +24,7 @@ const translations = {
       {
         title: "24/7 Availability",
         description: "We provide round-the-clock security services to ensure complete protection at all times. With our dedicated team available 24/7, you can have peace of mind knowing that your safety is our top priority, day or night.",
-        image: "/img/service-2.jpg",
+        image: "/img/about-img.jpg",
       },
       {
         title: "Tailored Solutions",
@@ -63,7 +63,7 @@ const translations = {
       {
         title: "متوفرة على مدار الساعة",
         description: "نقدم خدمات أمنية مستمرة على مدار 24 ساعة لضمان الحماية الكاملة في جميع الأوقات. مع فريقنا المتخصص المتاح 24/7، يمكنك أن تشعر بالراحة knowing أن سلامتك هي أولويتنا القصوى.",
-        image: "/img/service-2.jpg",
+        image: "/img/about-img.jpg",
       },
       {
         title: "حلول مخصصة",
@@ -137,26 +137,27 @@ function App() {
     </p>
   </div>
 </section>
+<div className="my-4 border-t border-[#A5993A]"></div>
         <Feature1 language={language} />
         
-      
+        <div className="my-4 border-t border-[#A5993A]"></div>
         <section id="mission" className="mb-12">
           <h2 className="text-2xl font-bold mb-4">{t.missionTitle}</h2>
           <p className="text-gray-700">{t.missionText}</p>
         </section>
-      
+        <div className="my-4 border-t border-[#A5993A]"></div>
         {/* Numbers Section */}
         <section id="numbers" className="mb-12">
           <Numbers language={language} />
         </section>
-      
+        <div className="my-4 border-t border-[#A5993A]"></div>
     <div id="services">
       <ServicesSection language={language} />
-    
+      <div className="my-4 border-t border-[#A5993A]"></div>
         {/* Why Choose Us Section */}
         <Services services={t.services} language={language} />
         </div>
-
+        <div className="my-4 border-t border-[#A5993A]"></div>
       </main>
     
 {/* Contact Section */}
@@ -182,6 +183,7 @@ function App() {
     </div>
   </div>
 </section>
+<div className="my-4 border-t border-[#A5993A]"></div>
       {/* Footer */}
       <Footer language={language} />
     </div>
