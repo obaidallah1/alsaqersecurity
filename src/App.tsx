@@ -4,6 +4,7 @@ import Numbers from "./components/Numbers";
 import Services from "./components/Services"; // Import the Services component
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Feature1 from "./components/feature1";
 
 const translations = {
   en: {
@@ -174,6 +175,7 @@ function App() {
           <p className="text-gray-700">{t.aboutText}</p>
         </section>
         
+        <Feature1 language={language} />
         
         <section id="mission" className="mb-12">
           <h2 className="text-2xl font-bold mb-4">{t.missionTitle}</h2>
