@@ -64,8 +64,8 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                             {t.contact.email}
                         </a>
                     </p>
-                </div>
-                <div className="flex justify-center mt-4">
+                
+
                     <a 
                         className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                         href="https://www.facebook.com/profile.php?id=100084175075125"
@@ -75,7 +75,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                         <i className="fab fa-facebook-f mr-2"></i> {/* Font Awesome Facebook icon */}
                         {language === 'ar' ? 'فيسبوك' : 'Facebook'}
                     </a>
-                </div>
+                    </div>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div className="flex items-center mb-4 md:mb-0">
                         <img
