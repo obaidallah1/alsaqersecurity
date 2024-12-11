@@ -185,10 +185,10 @@ function App() {
           </a>
 
           <h3 className="font-semibold mt-4">{t.phone}</h3>
-          <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}>
+          <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
             +967 02 258 013
           </p>
-          <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}>
+          <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
             +967 02 264 491
           </p>
 
