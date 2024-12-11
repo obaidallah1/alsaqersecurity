@@ -162,18 +162,20 @@ function App() {
     
 {/* Contact Section */}
 <section id="contact" className="bg-gray-100 py-8">
-  <div className="container mx-auto">
-    <h2 className="text-2xl font-bold mb-4">{t.contactTitle}</h2>
+  <div className="container mx-auto px-4 md:px-8"> {/* Added padding on the sides */}
+    <h2 className="text-2xl font-bold mb-4 text-center">{t.contactTitle}</h2> {/* Centered title */}
     <div className="grid md:grid-cols-2 gap-4">
       <div>
         <h3 className="font-semibold">{t.email}</h3>
-        <a className="text-gray-600 dark:text-gray-400" href="mailto:info@alsaqersecurity.com" >info@alsaqersecurity.com </a>
+        <a className="text-gray-600 dark:text-gray-400" href="mailto:info@alsaqersecurity.com">
+          info@alsaqersecurity.com
+        </a>
 
         <h3 className="font-semibold mt-4">{t.phone}</h3>
-        <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'}`} style={{ direction: 'ltr' }}>
+        <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}>
           +967 02 258 013
         </p>
-        <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'}`} style={{ direction: 'ltr' }}>
+        <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'rtl' : 'ltr' }}>
           +967 02 264 491
         </p>
 
