@@ -42,7 +42,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: "3000+",
+                    value: "550+",
                     label: {
                         en: "Projects Delivered",
                         ar: "المشاريع المنجزة",
@@ -81,7 +81,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: "3000+",
+                    value: "550+",
                     label: {
                         en: "المشاريع المنجزة",
                         ar: "المشاريع المنجزة",

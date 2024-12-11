@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Feature1 from "./components/feature1";
 import Numbers from "./components/Numbers";
-// import Services from "./components/Services";
+import Services from "./components/Services"; // Import the Services component
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 
@@ -105,7 +104,7 @@ const translations = {
         },
       },
       {
-        value: "3000+",
+        value: "550+",
         label: {
           en: "المشاريع المنجزة",
           ar: "Projects Delivered",
@@ -129,9 +128,34 @@ const translations = {
     ],
   },
 };
+
 function App() {
   const [language, setLanguage] = useState<"en" | "ar">("en");
   const t = translations[language];
+
+  // Define your services with images
+  const services = [
+    {
+      title: t.whyChooseUsPoints[0],
+      description: t.whyChooseUsPoints[0],
+      image: "/img/service-1.jpg", // Replace with actual image path
+    },
+    {
+      title: t.whyChooseUsPoints[1],
+      description: t.whyChooseUsPoints[1],
+      image: "/img/service-2.jpg", // Replace with actual image path
+    },
+    {
+      title: t.whyChooseUsPoints[2],
+      description: t.whyChooseUsPoints[2],
+      image: "/img/service-3.jpg", // Replace with actual image path
+    },
+    {
+      title: t.whyChooseUsPoints[3],
+      description: t.whyChooseUsPoints[3],
+      image: "/img/service-4.jpg", // Replace with actual image path
+    },
+  ];
 
   return (
     <div dir={language === "ar" ? "rtl" : "ltr"} className="font-sans">
@@ -140,6 +164,7 @@ function App() {
       {/* Header */}
       <Header language={language} setLanguage={setLanguage} />
       <Navbar language={language} />
+      
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         {/* About Section */}
@@ -147,27 +172,21 @@ function App() {
           <h2 className="text-2xl font-bold mb-4">{t.aboutTitle}</h2>
           <p className="text-gray-700">{t.aboutText}</p>
         </section>
-        <Feature1 language={language} />       
+        
+        
         <section id="mission" className="mb-12">
           <h2 className="text-2xl font-bold mb-4">{t.missionTitle}</h2>
           <p className="text-gray-700">{t.missionText}</p>
         </section>
-    {/* Numbers Section */}
-    <section id="numbers" className="mb-12">
-    <Numbers language={language} />
+        
+        {/* Numbers Section */}
+        <section id="numbers" className="mb-12">
+          <Numbers language={language} />
         </section>
 
         {/* Why Choose Us Section */}
-        <section id="services" className="mb-12">
+        <Services services={services} language={language} />
 
-        {/* <Services language={language} /> */}
-          <h2 className="text-2xl font-bold mb-4">{t.whyChooseUsTitle}</h2>
-          <ul className="list-disc list-inside text-gray-700">
-            {t.whyChooseUsPoints.map((point, index) => (
-              <li key={index}>{point}</li>
-            ))}
-          </ul>
-        </section>
       </main>
 
       {/* Contact Section */}
