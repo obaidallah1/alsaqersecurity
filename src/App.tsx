@@ -34,7 +34,7 @@ const translations = {
       {
         title: "Proven Experience",
         description: "With over 25 years of experience in civil security, we have established ourselves as leaders in the industry. Our extensive background allows us to understand and adapt to the evolving security landscape, ensuring that our clients receive the best protection possible.",
-        image: "/img/service-4.jpg",
+        image: "/img/contact-bg.jpg",
       },
     ],
     contactTitle: "Contact Us",

@@ -60,11 +60,13 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                     </p>
                     <p className="m-0 text-gray-600 dark:text-gray-400">
                         <i className="fa fa-envelope mr-2"></i>
-                        <a className="text-gray-600 dark:text-gray-400" href={`mailto:${t.contact.email}`}>
+                        <a 
+                            className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400" 
+                            href={`mailto:${t.contact.email}`}
+                        >
                             {t.contact.email}
                         </a>
                     </p>
-                
 
                     <a 
                         className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
@@ -72,10 +74,10 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <i className="fab fa-facebook-f mr-2"></i> {/* Font Awesome Facebook icon */}
+                        <i className="fab fa-facebook-f mr-2"></i>
                         {language === 'ar' ? 'فيسبوك' : 'Facebook'}
                     </a>
-                    </div>
+                </div>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div className="flex items-center mb-4 md:mb-0">
                         <img
@@ -91,8 +93,6 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                         {t.rights}
                     </span>
                 </div>
-                {/* Add Facebook link */}
-
             </div>
         </footer>
     );
