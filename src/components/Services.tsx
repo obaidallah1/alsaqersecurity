@@ -13,7 +13,7 @@ interface ServicesProps {
 }
 
 const Services: React.FC<ServicesProps> = ({ language, services }) => {
-  const title = language === "ar" ? "لماذا تختارنا؟" : "Why Choose Us?";
+  const title = language === "ar" ? "لماذا تختار شركة الصقر؟ " : "Why Choose Us?";
   const [fadeIn, setFadeIn] = useState(false);
 
   // Trigger fade-in effect on component mount
