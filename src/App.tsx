@@ -166,6 +166,7 @@ function App() {
       <Navbar language={language} />
       
       {/* Main Content */}
+
       <main className="container mx-auto px-4 py-8">
         {/* About Section */}
         <section id="about" className="mb-12">
@@ -183,34 +184,36 @@ function App() {
         <section id="numbers" className="mb-12">
           <Numbers language={language} />
         </section>
-
+    <div id="services">
         {/* Why Choose Us Section */}
         <Services services={services} language={language} />
+        </div>
 
       </main>
 
-      {/* Contact Section */}
-      <section id="contact" className="bg-gray-100 py-8">
-        <div className="container mx-auto">
-          <h2 className="text-2xl font-bold mb-4">{t.contactTitle}</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <h3 className="font-semibold">{t.email}</h3>
-              <p className="text-gray-700">info@alsaqersecurity.com</p>
+{/* Contact Section */}
+<section id="contact" className="bg-gray-100 py-8">
+  <div className="container mx-auto">
+    <h2 className="text-2xl font-bold mb-4">{t.contactTitle}</h2>
+    <div className="grid md:grid-cols-2 gap-4">
+      <div>
+        <h3 className="font-semibold">{t.email}</h3>
+        <p className="text-gray-700">info@alsaqersecurity.com</p>
 
-              <h3 className="font-semibold mt-4">{t.phone}</h3>
-              <p className="text-gray-700">+967 02 258 013</p>
-              <p className="text-gray-700">+967 02 264 491</p>
+        <h3 className="font-semibold mt-4">{t.phone}</h3>
+        <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'}`} style={{ direction: 'ltr' }}>
+          +967 02 258 013
+        </p>
+        <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'}`} style={{ direction: 'ltr' }}>
+          +967 02 264 491
+        </p>
 
-              <h3 className="font-semibold mt-4">{t.location}</h3>
-              <p className="text-gray-700">{t.address.join(", ")}</p>
-            </div>
-            <div>
-              <img src="location.png" alt="Location" className="w-full h-auto" />
-            </div>
-          </div>
-        </div>
-      </section>
+        <h3 className="font-semibold mt-4">{t.location}</h3>
+        <p className="text-gray-700">{t.address.join(", ")}</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <Footer language={language} />

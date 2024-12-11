@@ -39,8 +39,6 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
     return (
         <footer className="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
             <div className="w-full mx-auto max-w-screen-xl p-4">
-              
-
                 <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-600 dark:text-gray-400">
                     {t.popularLinks.map((link, index) => (
                         <li key={index}>
@@ -54,10 +52,10 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                 <div className="text-center mb-4">
                     <h5 className="text-gray-600 dark:text-gray-400">{language === 'ar' ? 'للتواصل معنا' : 'Get In Touch'}</h5>
                     <p className="m-0 text-gray-600 dark:text-gray-400">{t.contact.address}</p>
-                    <p className="m-0 text-gray-600 dark:text-gray-400">
+                    <p className="m-0 text-gray-600 dark:text-gray-400" style={{ direction: 'ltr' }}>
                         <i className="fa fa-phone-alt mr-2"></i>{t.contact.phone1}
                     </p>
-                    <p className="m-0 text-gray-600 dark:text-gray-400">
+                    <p className="m-0 text-gray-600 dark:text-gray-400" style={{ direction: 'ltr' }}>
                         <i className="fa fa-phone-alt mr-2"></i>{t.contact.phone2}
                     </p>
                     <p className="m-0 text-gray-600 dark:text-gray-400">

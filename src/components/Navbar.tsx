@@ -29,9 +29,8 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
 
   const t = links[language];
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null); // Ref for the mobile menu
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close the mobile menu when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -45,21 +44,19 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
     };
   }, [menuRef]);
 
-  const handleLinkClick = (section: string) => {
+  const handleLinkClick = (section: keyof typeof t) => {
     scrollToSection(section);
-    setIsOpen(false); // Close the menu after clicking a link
+    setIsOpen(false);
   };
 
   return (
     <div className="bg-gray-900 text-white">
       <nav className="container mx-auto flex items-center justify-between px-4 py-3">
-        {/* Brand */}
         <a href="/" className="text-2xl font-bold text-white">
-          <span className="text-blue-500">{language === "ar" ? "أمانك" : "Your Safety"}</span>{" "}
-          {language === "ar" ? "مجهودنا" : "Our Efforts"}
+          <span className="text-blue-500">{language === "ar" ? "أمانكم" : "Your Safety"}</span>{" "}
+          {language === "ar" ? "هدفنا" : "Our Goal"}
         </a>
 
-        {/* Toggler (for mobile) */}
         <button
           type="button"
           className="lg:hidden text-white focus:outline-none"
@@ -75,43 +72,39 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
           </svg>
         </button>
 
-        {/* Links */}
         <div
           id="navbarMenu"
           className={`hidden lg:flex lg:flex-row items-center ${
             language === "ar" ? "lg:space-x-reverse lg:space-x-4" : "lg:space-x-6"
           } space-y-4 lg:space-y-0`}
         >
-          <button className="text-white hover:text-blue-400 transition-colors duration-200" onClick={() => handleLinkClick("home")}>
-            {t.home}
-          </button>
-          <button className="text-white hover:text-blue-400 transition-colors duration-200" onClick={() => handleLinkClick("about")}>
-            {t.about}
-          </button>
-          <button className="text-white hover:text-blue-400 transition-colors duration-200" onClick={() => handleLinkClick("services")}>
-            {t.services}
-          </button>
-          <button className="text-white hover:text-blue-400 transition-colors duration-200" onClick={() => handleLinkClick("contact")}>
-            {t.contact}
-          </button>
+          {Object.keys(t).map((key) => (
+            <button
+              key={key}
+              className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105"
+              onClick={() => handleLinkClick(key as keyof typeof t)}
+            >
+              {t[key as keyof typeof t]}
+            </button>
+          ))}
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
-          <div ref={menuRef} className="absolute top-16 left-0 w-full bg-gray-900 lg:hidden">
+          <div
+            ref={menuRef}
+            className="absolute top-16 left-0 w-full bg-gray-900 lg:hidden transition-transform transform duration-300 ease-in-out"
+            style={{ opacity: isOpen ? 1 : 0, transform: isOpen ? "translateY(0)" : "translateY(-20px)" }}
+          >
             <div className="flex flex-col items-center p-4">
-              <button className="text-white hover:text-blue-400 transition-colors duration-200 mb-2" onClick={() => handleLinkClick("home")}>
-                {t.home}
-              </button>
-              <button className="text-white hover:text-blue-400 transition-colors duration-200 mb-2" onClick={() => handleLinkClick("about")}>
-                {t.about}
-              </button>
-              <button className="text-white hover:text-blue-400 transition-colors duration-200 mb-2" onClick={() => handleLinkClick("services")}>
-                {t.services}
-              </button>
-              <button className="text-white hover:text-blue-400 transition-colors duration-200 mb-2" onClick={() => handleLinkClick("contact")}>
-                {t.contact}
-              </button>
+              {Object.keys(t).map((key) => (
+                <button
+                  key={key}
+                  className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105 mb-2"
+                  onClick={() => handleLinkClick(key as keyof typeof t)}
+                >
+                  {t[key as keyof typeof t]}
+                </button>
+              ))}
             </div>
           </div>
         )}
