@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Numbers from "./components/Numbers";
 import Services from "./components/Services"; // Import the Services component
 import Footer from "./components/Footer";
 import Feature1 from "./components/feature1";
 import ServicesSection from "./components/ServicesSection";
 import HeaderNavbar from "./components/HeaderNavbar";
+import { motion } from "framer-motion";
 
 
 const translations = {
@@ -95,18 +96,7 @@ function App() {
 
   ];
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [backgroundImages.length]);
-  // Define your services with images
   
-
   return (
     <><div dir={language === "ar" ? "rtl" : "ltr"} className="font-sans">
       {/* Language Switcher */}
@@ -118,27 +108,37 @@ function App() {
       <main className="container mx-auto px-4 py-8">
        {/* About Section */}
        <section id="about" className="relative pt-8 mb-12 flex flex-col md:flex-row h-auto md:h-[600px]">
-  {/* Background Image Container */}
-  <div className="relative w-full flex items-center justify-center mb-4 md:mb-0">
-    <div
-      className="w-64 h-64 rounded-full overflow-hidden shadow-lg transition-opacity duration-500"
-      style={{
-        backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        opacity: 0.9, // Adjust opacity for overlay effect
-      }} 
-    />
-  </div>
+      {/* Background Image Container */}
+      <motion.div
+        className="relative w-full flex items-center justify-center mb-4 md:mb-0"
+        initial={{ y: -50, opacity: 0 }}  // Start position and opacity
+        animate={{ y: 0, opacity: 1 }}    // End position and opacity
+        transition={{ duration: 1 }}        // Animation duration
+      >
+        <div
+          className="w-64 h-64 rounded-full overflow-hidden shadow-lg transition-opacity duration-500"
+          style={{
+            backgroundImage: `url(${backgroundImages[0]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.9,
+          }} 
+        />
+      </motion.div>
 
-  {/* Text Container */}
-  <div className="relative z-10 w-full md:w-1/2 p-4 md:p-8 flex flex-col justify-center bg-white bg-opacity-90 rounded-lg shadow-lg">
-    <h2 className="text-3xl md:text-2xl font-bold mb-4 text-gray-800">{t.aboutTitle}</h2>
-    <p className="text-gray-700 text-lg md:text-base">
-      {t.aboutText}
-    </p>
-  </div>
-</section>
+      {/* Text Container */}
+      <motion.div
+        className="relative z-10 w-full p-4 md:p-6 flex flex-col justify-center bg-white bg-opacity-90 rounded-lg shadow-md border border-[#A5993A] mt-4 mb-4 md:mt-0 md:mb-0" // Added margin
+        initial={{ y: 50, opacity: 0 }}  // Start position and opacity
+        animate={{ y: 0, opacity: 1 }}    // End position and opacity
+        transition={{ duration: 1 }}        // Animation duration
+      >
+        <h2 className="text-2xl md:text-xl font-bold mb-2 text-gray-800">{t.aboutTitle}</h2>
+        <p className="text-gray-700 text-base">
+          {t.aboutText}
+        </p>
+      </motion.div>
+    </section>
         <div className="my-4 border-t border-[#A5993A]"></div>
         <Feature1 language={language} />
 
