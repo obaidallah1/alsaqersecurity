@@ -39,7 +39,7 @@ const translations = {
     ],
     contactTitle: "Contact Us",
     email: "Email:",
-    phone: "Phone Numbers:",
+    phone: "Whatsapp:",
     location: "Location:",
     address: [
       "Crater - King Salman Street",
@@ -78,7 +78,7 @@ const translations = {
     ],
     contactTitle: "تواصل معنا",
     email: "البريد الإلكتروني:",
-    phone: "أرقام الهاتف:",
+    phone: "واتساب :",
     location: "الموقع:",
     address: ["كريتر - شارع الملك سلمان", "عمارة أبديت الدور الثاني"],
     footer: "© 2024 شركة الصقر لخدمات الأمن. جميع الحقوق محفوظة.",
@@ -191,17 +191,24 @@ function App() {
           </a>
         </div>
         <div className="flex-1">
-          <h3 className="font-semibold text-gray-900 flex items-center">
-            <i className="fas fa-phone-alt mr-2"></i> {/* Phone icon */}
-            {t.phone}
-          </h3>
-          <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
-            +967 02 258 013
-          </p>
-          <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
-            +967 02 264 491
-          </p>
-        </div>
+  <h3 className="font-semibold text-gray-900 flex items-center">
+    <i className="fab fa-whatsapp mr-2"></i> {/* WhatsApp icon */}
+    {t.phone}
+  </h3>
+  <p
+    className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`}
+    style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}
+  >
+    <a
+      href="https://wa.me/967737179330" // WhatsApp link format
+      className="text-gray-800 hover:text-blue-600"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      +967 737 179 330
+    </a>
+  </p>
+</div>
         <div className="flex-1">
           <h3 className="font-semibold text-gray-900 flex items-center">
             <i className="fas fa-map-marker-alt mr-2"></i> {/* Location icon */}
