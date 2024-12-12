@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Define the Stat interface
 interface Stat {
-    value: string;
+    value: number;
     label: {
         en: string;
         ar: string;
@@ -31,7 +31,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
             description: "With dedication and expertise, we have marked our presence in the security industry.",
             stats: [
                 {
-                    value: "25+",
+                    value: 25,
                     label: {
                         en: "Years in Business",
                         ar: "سنوات من العمل",
@@ -42,7 +42,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: "550+",
+                    value: 550,
                     label: {
                         en: "Projects Delivered",
                         ar: "المشاريع المنجزة",
@@ -53,7 +53,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: "50+",
+                    value: 50,
                     label: {
                         en: "Team Members",
                         ar: "أعضاء الفريق",
@@ -70,7 +70,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
             description: "بفضل التزامنا وخبرتنا، وضعنا بصمتنا في صناعة الأمن.",
             stats: [
                 {
-                    value: "25+",
+                    value: 25,
                     label: {
                         en: "سنوات من العمل",
                         ar: "سنوات من العمل",
@@ -81,7 +81,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: "550+",
+                    value: 550,
                     label: {
                         en: "المشاريع المنجزة",
                         ar: "المشاريع المنجزة",
@@ -92,7 +92,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: "50+",
+                    value: 50,
                     label: {
                         en: "أعضاء الفريق",
                         ar: "أعضاء الفريق",
@@ -107,6 +107,30 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
     };
 
     const t = translations[language];
+    const [isVisible, setIsVisible] = useState(false);
+    const observerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect(); // Stop observing once in view
+                }
+            },
+            { threshold: 0.1 } // Trigger when 10% of the element is visible
+        );
+
+        if (observerRef.current) {
+            observer.observe(observerRef.current);
+        }
+
+        return () => {
+            if (observerRef.current) {
+                observer.unobserve(observerRef.current);
+            }
+        };
+    }, []);
 
     return (
         <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">
@@ -120,22 +144,44 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 mt-10 text-center lg:mt-24 sm:gap-x-8 md:grid-cols-3">
-                    {t.stats.map((stat: Stat, index: number) => (
-                        <div key={index}>
-                            <h3 className="font-bold text-7xl">
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600">
-                                    {stat.value}
-                                </span>
-                            </h3>
-                            <p className="mt-4 text-xl font-medium text-gray-900">
-                                {stat.label[language]}
-                            </p>
-                            <p className="text-base mt-0.5 text-gray-500">
-                                {stat.description[language]}
-                            </p>
-                        </div>
-                    ))}
+                <div className="grid grid-cols-1 gap-8 mt-10 text-center lg:mt-24 sm:gap-x-8 md:grid-cols-3" ref={observerRef}>
+                    {t.stats.map((stat: Stat, index: number) => {
+                        const [count, setCount] = useState(0);
+
+                        useEffect(() => {
+                            if (isVisible) {
+                                let start = 0;
+                                const end = stat.value;
+
+                                const duration = 2000; // Animation duration in milliseconds
+                                const incrementTime = Math.abs(Math.floor(duration / end));
+
+                                const counter = setInterval(() => {
+                                    start += 1;
+                                    setCount(start);
+                                    if (start === end) {
+                                        clearInterval(counter);
+                                    }
+                                }, incrementTime);
+                            }
+                        }, [isVisible, stat.value]);
+
+                        return (
+                            <div key={index}>
+                                <h3 className="font-bold text-7xl">
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600">
+                                        {count}+
+                                    </span>
+                                </h3>
+                                <p className="mt-4 text-xl font-medium text-gray-900">
+                                    {stat.label[language]}
+                                </p>
+                                <p className="text-base mt-0.5 text-gray-500">
+                                    {stat.description[language]}
+                                </p>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
