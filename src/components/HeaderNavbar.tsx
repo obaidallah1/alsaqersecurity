@@ -166,19 +166,6 @@ const HeaderNavbar: React.FC<HeaderNavbarProps> = ({ language, setLanguage }) =>
                   >
                     العربية
                   </button>
-                
-                <div className="flex flex-col items-start space-y-2 mt-4">
-                  <li className="flex " style={{ direction: 'ltr' }}>
-                    <i className="fa fa-phone mr-2"></i>+967 02 258 013
-                  </li>
-                  <li className="flex " style={{ direction: 'ltr' }}>
-                    <i className="fa fa-phone mr-2"></i>+967 02 264 491
-                  </li>
-                  <li className="flex " style={{ direction: 'ltr' }}>
-                    <i className="fa fa-envelope mr-2"></i>
-                    <a href="mailto:info@alsaqersecurity.com" className="hover:underline">info@alsaqersecurity.com</a>
-                  </li>
-                </div>
                
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { GlareCard } from "./ui/glare-card";
 
 interface ServicesSectionProps {
   language: "en" | "ar";
@@ -45,24 +46,30 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
     <section className="service_section py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-3xl font-bold text-gray-900">
             {language === "ar" ? "خدماتنا" : "Our Services"}
           </h2>
         </div>
         <div className="flex flex-wrap -mx-4">
           {servicesData.map((service, index) => (
             <div key={index} className="w-full md:w-1/3 px-4 mb-8">
-              <div className="bg-white rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 hover:shadow-xl">
+              <GlareCard className="flex flex-col items-center justify-center p-6 bg-gray-100 border border-[#A5993A]">
                 <div className="img-box mb-4">
-                  <img src={service.image} alt={service.title[language]} className="w-12 h-12" />
+                  <img
+                    src={service.image}
+                    alt={service.title[language]}
+                    className="w-12 h-12"
+                  />
                 </div>
-                <div className="detail-box">
-                  <h6 className="text-xl font-semibold mb-2">{service.title[language]}</h6>
-                  <p className="text-gray-700 mb-4 text-lg">
+                <div className="detail-box text-center">
+                  <h6 className="text-xl font-semibold mb-2 text-gray-900">
+                    {service.title[language]}
+                  </h6>
+                  <p className="text-gray-800 mb-4 text-lg">
                     {service.description[language]}
                   </p>
                 </div>
-              </div>
+              </GlareCard>
             </div>
           ))}
         </div>

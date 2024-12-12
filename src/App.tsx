@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Feature1 from "./components/feature1";
 import ServicesSection from "./components/ServicesSection";
 import HeaderNavbar from "./components/HeaderNavbar";
+import { ImagesSlider } from "./components/ui/images-slider";
 
 
 const translations = {
