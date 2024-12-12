@@ -6,6 +6,7 @@ import Feature1 from "./components/feature1";
 import ServicesSection from "./components/ServicesSection";
 import HeaderNavbar from "./components/HeaderNavbar";
 
+
 const translations = {
   en: {
     header: "Alsaqer Security Services",
@@ -88,8 +89,10 @@ function App() {
   const [language, setLanguage] = useState<"en" | "ar">("ar");
   const t = translations[language];
   const backgroundImages = [
+    "/icons/alsaqer.png",
     "/img/ss.jpg",
     "/img/hero-bg.jpg",
+
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -105,38 +108,40 @@ function App() {
   
 
   return (
-    <div dir={language === "ar" ? "rtl" : "ltr"} className="font-sans">
+    <><div dir={language === "ar" ? "rtl" : "ltr"} className="font-sans">
       {/* Language Switcher */}
-      
+
       {/* Header */}
       <HeaderNavbar language={language} setLanguage={setLanguage} />
       {/* Main Content */}
 
       <main className="container mx-auto px-4 py-8">
-        {/* About Section */}
-        <section id="about" className="relative mb-12 flex flex-col md:flex-row h-auto md:h-[600px]">
+       {/* About Section */}
+       <section id="about" className="relative pt-8 mb-12 flex flex-col md:flex-row h-auto md:h-[600px]">
   {/* Background Image Container */}
-  <div className="relative w-full md:w-1/2 h-40 md:h-full">
+  <div className="relative w-full flex items-center justify-center mb-4 md:mb-0">
     <div
-      className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
+      className="w-64 h-64 rounded-full overflow-hidden shadow-lg transition-opacity duration-500"
       style={{
         backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         opacity: 0.9, // Adjust opacity for overlay effect
-      }}
+      }} 
     />
   </div>
-  
+
   {/* Text Container */}
-  <div className="relative z-10 w-full md:w-1/2 p-4 md:p-8 flex flex-col justify-center bg-white bg-opacity-75">
-    <h2 className="text-3xl md:text-2xl font-bold mb-4">{t.aboutTitle}</h2>
+  <div className="relative z-10 w-full md:w-1/2 p-4 md:p-8 flex flex-col justify-center bg-white bg-opacity-90 rounded-lg shadow-lg">
+    <h2 className="text-3xl md:text-2xl font-bold mb-4 text-gray-800">{t.aboutTitle}</h2>
     <p className="text-gray-700 text-lg md:text-base">
       {t.aboutText}
     </p>
   </div>
 </section>
-<div className="my-4 border-t border-[#A5993A]"></div>
+        <div className="my-4 border-t border-[#A5993A]"></div>
         <Feature1 language={language} />
-        
+
         <div className="my-4 border-t border-[#A5993A]"></div>
         <section id="mission" className="mb-12">
           <h2 className="text-2xl font-bold mb-4">{t.missionTitle}</h2>
@@ -148,15 +153,14 @@ function App() {
           <Numbers language={language} />
         </section>
         <div className="my-4 border-t border-[#A5993A]"></div>
-    <div id="services">
-      <ServicesSection language={language} />
-      <div className="my-4 border-t border-[#A5993A]"></div>
-        {/* Why Choose Us Section */}
-        <Services services={t.services} language={language} />
+        <div id="services">
+          <ServicesSection language={language} />
+          <div className="my-4 border-t border-[#A5993A]"></div>
+          {/* Why Choose Us Section */}
+          <Services services={t.services} language={language} />
         </div>
         <div className="my-4 border-t border-[#A5993A]"></div>
       </main>
-    
 {/* Contact Section */}
 <section
   id="contact"
@@ -168,40 +172,51 @@ function App() {
   }}
 >
   <div className="container mx-auto px-4 md:px-8 relative">
-    {/* Semi-transparent overlay with reduced opacity */}
-    <div className="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
+    {/* Increase the opacity value to make the overlay darker */}
+    <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div> {/* Changed to 50% opacity */}
     {/* Inner content with background */}
-    <div className="relative z-10 bg-white bg-opacity-75 rounded-lg p-6"> {/* Added padding for better layout */}
+    <div className="relative z-10 bg-white bg-opacity-75 rounded-lg p-6">
       <h2 className="text-2xl font-bold mb-4 text-center text-gray-900">{t.contactTitle}</h2>
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-          <h3 className="font-semibold text-gray-900">{t.email}</h3> {/* Bright text color */}
+      <div className="flex flex-col md:flex-row md:justify-between gap-4">
+        <div className="flex-1">
+          <h3 className="font-semibold text-gray-900 flex items-center">
+            <i className="fas fa-envelope mr-2"></i> {/* Email icon */}
+            {t.email}
+          </h3>
           <a
             className="text-blue-600 hover:text-blue-400"
             href="mailto:info@alsaqersecurity.com"
           >
             info@alsaqersecurity.com
           </a>
-
-          <h3 className="font-semibold mt-4 text-gray-900">{t.phone}</h3> {/* Bright text color */}
+        </div>
+        <div className="flex-1">
+          <h3 className="font-semibold text-gray-900 flex items-center">
+            <i className="fas fa-phone-alt mr-2"></i> {/* Phone icon */}
+            {t.phone}
+          </h3>
           <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
             +967 02 258 013
           </p>
           <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
             +967 02 264 491
           </p>
-
-          <h3 className="font-semibold mt-4 text-gray-900">{t.location}</h3> {/* Bright text color */}
-          <p className="text-gray-800">{t.address.join(", ")}</p> {/* Bright text color */}
+        </div>
+        <div className="flex-1">
+          <h3 className="font-semibold text-gray-900 flex items-center">
+            <i className="fas fa-map-marker-alt mr-2"></i> {/* Location icon */}
+            {t.location}
+          </h3>
+          <p className="text-gray-800">{t.address.join(", ")}</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<div className="my-4 border-t border-[#A5993A]"></div>
+      <div className="my-4 border-t border-[#A5993A]"></div>
       {/* Footer */}
       <Footer language={language} />
-    </div>
+    </div></>
   );
 }
 
