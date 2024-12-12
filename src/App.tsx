@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
 import Numbers from "./components/Numbers";
 import Services from "./components/Services"; // Import the Services component
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Feature1 from "./components/feature1";
 import ServicesSection from "./components/ServicesSection";
+import HeaderNavbar from "./components/HeaderNavbar";
 
 const translations = {
   en: {
@@ -110,9 +109,7 @@ function App() {
       {/* Language Switcher */}
       
       {/* Header */}
-      <Header language={language} setLanguage={setLanguage} />
-      <Navbar language={language} />
-      
+      <HeaderNavbar language={language} setLanguage={setLanguage} />
       {/* Main Content */}
 
       <main className="container mx-auto px-4 py-8">
@@ -165,35 +162,37 @@ function App() {
   id="contact"
   className="bg-cover bg-center py-8"
   style={{
-    backgroundImage: 'url(/img/feature.jpg)',
+    backgroundImage: 'url(/img/carousel-1.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   }}
 >
-  <div className="container mx-auto px-4 md:px-8 relative"> {/* Added relative positioning */}
-    <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div> {/* Semi-transparent overlay */}
-    <div className="relative z-10 bg-white bg-opacity-75 rounded-lg"> {/* Inner content with background */}
-      <h2 className="text-2xl font-bold mb-4 text-center">{t.contactTitle}</h2>
+  <div className="container mx-auto px-4 md:px-8 relative">
+    {/* Semi-transparent overlay with reduced opacity */}
+    <div className="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
+    {/* Inner content with background */}
+    <div className="relative z-10 bg-white bg-opacity-75 rounded-lg p-6"> {/* Added padding for better layout */}
+      <h2 className="text-2xl font-bold mb-4 text-center text-gray-900">{t.contactTitle}</h2>
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <h3 className="font-semibold">{t.email}</h3>
+          <h3 className="font-semibold text-gray-900">{t.email}</h3> {/* Bright text color */}
           <a
-            className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+            className="text-blue-600 hover:text-blue-400"
             href="mailto:info@alsaqersecurity.com"
           >
             info@alsaqersecurity.com
           </a>
 
-          <h3 className="font-semibold mt-4">{t.phone}</h3>
-          <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
+          <h3 className="font-semibold mt-4 text-gray-900">{t.phone}</h3> {/* Bright text color */}
+          <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
             +967 02 258 013
           </p>
-          <p className={`text-gray-700 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
+          <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: language === 'ar' ? 'ltr' : 'ltr' }}>
             +967 02 264 491
           </p>
 
-          <h3 className="font-semibold mt-4">{t.location}</h3>
-          <p className="text-gray-700">{t.address.join(", ")}</p>
+          <h3 className="font-semibold mt-4 text-gray-900">{t.location}</h3> {/* Bright text color */}
+          <p className="text-gray-800">{t.address.join(", ")}</p> {/* Bright text color */}
         </div>
       </div>
     </div>
