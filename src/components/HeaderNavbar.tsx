@@ -156,13 +156,13 @@ const HeaderNavbar: React.FC<HeaderNavbarProps> = ({ language, setLanguage }) =>
                 
                   <button
                     className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105 mb-2 w-full text-left"
-                    onClick={() => setLanguage("en")}
+                    onClick={() => {setLanguage("en");  setDropdownOpen(false);}}
                   >
                     English
                   </button>
                   <button
                     className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105 mb-2 w-full text-left"
-                    onClick={() => setLanguage("ar")}
+                    onClick={() => {setLanguage("ar");  setDropdownOpen(false);}}
                   >
                     العربية
                   </button>
