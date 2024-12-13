@@ -231,7 +231,7 @@ function App() {
                   <i className="fab fa-whatsapp mr-2"></i>
                   {t.phone}
                 </h3>
-                <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`}>
+                <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`}style={{ direction: 'ltr' }}>
                   <a
                     href="https://wa.me/967737179330"
                     className="text-gray-800 hover:text-blue-600"
