@@ -9,21 +9,20 @@ export const HoverEffect = ({
   items: {
     title: string;
     description: string;
-    image: string; // Include image property
+    image: string;
   }[];
   className?: string;
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false); // Track if the view is mobile
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check if the screen size is mobile
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Run initially
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -31,7 +30,7 @@ export const HoverEffect = ({
   }, []);
 
   useEffect(() => {
-    if (!isMobile) return; // Only enable the observer on mobile
+    if (!isMobile) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -42,7 +41,7 @@ export const HoverEffect = ({
           }
         });
       },
-      { threshold: 0.5 } // Adjust the threshold as needed
+      { threshold: 0.5 }
     );
 
     const elements = containerRef.current?.querySelectorAll(".card-item");
@@ -51,7 +50,7 @@ export const HoverEffect = ({
     return () => {
       elements?.forEach((el) => observer.unobserve(el));
     };
-  }, [isMobile]);
+  }, [isMobile, items]); // Re-run observer when `items` changes
 
   return (
     <div
@@ -63,14 +62,14 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <div
-          key={item.title}
+          key={`${item.title}-${idx}`} // Ensure unique key for each item
           className="relative group block p-2 h-full w-full card-item"
           data-index={idx}
           onMouseEnter={() => {
-            if (!isMobile) setActiveIndex(idx); // Hover effect for desktop
+            if (!isMobile) setActiveIndex(idx);
           }}
           onMouseLeave={() => {
-            if (!isMobile) setActiveIndex(null); // Clear hover effect for desktop
+            if (!isMobile) setActiveIndex(null);
           }}
         >
           <AnimatePresence>
@@ -79,14 +78,8 @@ export const HoverEffect = ({
                 className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
+                animate={{ opacity: 1, transition: { duration: 0.15 } }}
+                exit={{ opacity: 0, transition: { duration: 0.15, delay: 0.2 } }}
               />
             )}
           </AnimatePresence>
@@ -112,15 +105,15 @@ export const Card = ({
 }: {
   className?: string;
   children: React.ReactNode;
-  isActive: boolean; // New prop to determine active state
+  isActive: boolean;
 }) => {
   return (
     <div
       className={cn(
         "rounded-2xl h-full w-full p-4 overflow-hidden bg-white border relative z-20 transition-colors duration-300",
         isActive
-          ? "border-[#A5993A]" // Apply the active border color
-          : "border-transparent", // Default border color
+          ? "border-[#A5993A]"
+          : "border-transparent",
         className
       )}
     >
