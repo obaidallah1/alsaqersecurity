@@ -88,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div className="flex items-center mb-4 md:mb-0">
                         <img
-                            src="/icons/alsaqer.png"
+                            src="/icons/alsaqer.avif"
                             alt={t.companyName}
                             className="h-8 mr-3" // Adjust height as needed
                         />

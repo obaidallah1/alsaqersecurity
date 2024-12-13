@@ -32,17 +32,17 @@ const translations = {
       {
         title: "24/7 Availability",
         description: "We provide round-the-clock security services to ensure complete protection at all times. With our dedicated team available 24/7, you can have peace of mind knowing that your safety is our top priority, day or night.",
-        image: "/img/about-img.jpg",
+        image: "/img/about-img.avif",
       },
       {
         title: "Tailored Solutions",
         description: "We design innovative security solutions tailored to meet the specific needs of different sectors. Whether it's commercial, residential, or public safety, our customized approaches ensure that we address the unique challenges faced by each client.",
-        image: "/img/service-3.jpg",
+        image: "/img/service-3.avif",
       },
       {
         title: "Proven Experience",
         description: "With over 25 years of experience in civil security, we have established ourselves as leaders in the industry. Our extensive background allows us to understand and adapt to the evolving security landscape, ensuring that our clients receive the best protection possible.",
-        image: "/img/contact-bg.jpg",
+        image: "/img/contact-bg.avif",
       },
     ],
     contactTitle: "Contact Us",
@@ -79,17 +79,17 @@ const translations = {
       {
         title: "متوفرة على مدار الساعة",
         description: "نقدم خدمات أمنية مستمرة على مدار 24 ساعة لضمان الحماية الكاملة في جميع الأوقات. مع فريقنا المتخصص المتاح 24/7، يمكنك أن تشعر بالراحة علماً أن سلامتك هي أولويتنا القصوى.",
-        image: "/img/about-img.jpg",
+        image: "/img/about-img.avif",
       },
       {
         title: "حلول مخصصة",
         description: "نقوم بتصميم حلول أمنية مبتكرة مصممة لتلبية الاحتياجات المحددة لمختلف القطاعات. سواء كانت تجارية أو سكنية أو للسلامة العامة، تضمن نهجنا المخصص أننا نتعامل مع التحديات الفريدة التي يواجهها كل عميل.",
-        image: "/img/service-3.jpg",
+        image: "/img/service-3.avif",
       },
       {
         title: "خبرة مثبتة",
         description: "مع أكثر من 25 عامًا من الخبرة في الأمن المدني، أقمنا أنفسنا كقادة في الصناعة. تسمح لنا خلفيتنا الواسعة بفهم والتكيف مع المشهد الأمني المتطور، مما يضمن أن عملائنا يتلقون أفضل حماية ممكنة.",
-        image: "/img/contact-bg.jpg",
+        image: "/img/contact-bg.avif",
       },
     ],
     contactTitle: "تواصل معنا",
@@ -212,7 +212,7 @@ function App() {
         id="contact"
         className="bg-cover bg-center py-8"
         style={{
-          backgroundImage: 'url(/img/carousel-1.jpg)',
+          backgroundImage: 'url(/img/carousel-1.avif)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -266,7 +266,7 @@ function App() {
   href={`tel:${'+967737179330'}`}
   className="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-lg flex items-center justify-center transition group bg-cover bg-center z-50"
   style={{
-    backgroundImage: `url('/icons/alsaqer.png')`,
+    backgroundImage: `url('/icons/alsaqer.avif')`,
   }}
 >
   <div className="flex items-center justify-center w-full h-full transition-all duration-300 group-hover:bg-[#8f7a2e] group-hover:rounded-full">
