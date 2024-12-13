@@ -4,7 +4,6 @@ import Services from "./components/Services";
 import Footer from "./components/Footer";
 import ServicesSection from "./components/ServicesSection";
 import HeaderNavbar from "./components/HeaderNavbar";
-import { AnimatePresence, motion } from "framer-motion";
 import Feature1 from "./components/feature1";
 import { translations } from "../translations";
 import AboutSection from "./components/aboutsection";
