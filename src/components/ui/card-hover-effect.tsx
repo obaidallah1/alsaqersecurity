@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const HoverEffect = ({
   items,
@@ -13,10 +13,33 @@ export const HoverEffect = ({
   }[];
   className?: string;
 }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = parseInt(entry.target.getAttribute("data-index") || "-1");
+          if (entry.isIntersecting) {
+            setActiveIndex(index);
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust the threshold as needed
+    );
+
+    const elements = containerRef.current?.querySelectorAll(".card-item");
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements?.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   return (
     <div
+      ref={containerRef}
       className={cn(
         "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
         className
@@ -25,12 +48,11 @@ export const HoverEffect = ({
       {items.map((item, idx) => (
         <div
           key={item.title}
-          className="relative group block p-2 h-full w-full"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          className="relative group block p-2 h-full w-full card-item"
+          data-index={idx}
         >
           <AnimatePresence>
-            {hoveredIndex === idx && (
+            {activeIndex === idx && (
               <motion.span
                 className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
                 layoutId="hoverBackground"
@@ -46,11 +68,11 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
+          <Card isActive={activeIndex === idx}>
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-32 object-cover rounded-t-xl" // Adjust the styling as needed
+              className="w-full h-32 object-cover rounded-t-xl"
             />
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
@@ -64,14 +86,19 @@ export const HoverEffect = ({
 export const Card = ({
   className,
   children,
+  isActive,
 }: {
   className?: string;
   children: React.ReactNode;
+  isActive: boolean; // New prop to determine active state
 }) => {
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-white border border-transparent group-hover:border-[#A5993A] relative z-20", // Updated border color
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-white border relative z-20 transition-colors duration-300",
+        isActive
+          ? "border-[#A5993A]" // Apply the active border color
+          : "border-transparent", // Default border color
         className
       )}
     >
