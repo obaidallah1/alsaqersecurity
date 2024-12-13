@@ -74,6 +74,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           ))}
         </div>
       </div>
+      <div className="my-4 border-t border-[#A5993A]"></div>
     </section>
   );
 };

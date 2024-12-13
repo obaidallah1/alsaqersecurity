@@ -16,6 +16,7 @@ function App() {
     "/img/hero-bg.jpg",
     "/img/carousel-1.jpg",
   ];
+
   const icon = "/icons/alsaqer.png";
   const [currentImage, setCurrentImage] = useState(0);
   const [currentAboutText, setCurrentAboutText] = useState(t.aboutTexts[0]);
