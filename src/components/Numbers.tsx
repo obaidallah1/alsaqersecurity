@@ -42,7 +42,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: 550,
+                    value: 850,
                     label: {
                         en: "Projects Delivered",
                         ar: "المشاريع المنجزة",
@@ -53,7 +53,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: 50,
+                    value: 90,
                     label: {
                         en: "Team Members",
                         ar: "أعضاء الفريق",
@@ -81,7 +81,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: 550,
+                    value: 850,
                     label: {
                         en: "المشاريع المنجزة",
                         ar: "المشاريع المنجزة",
@@ -92,7 +92,7 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
                     },
                 },
                 {
-                    value: 50,
+                    value: 90,
                     label: {
                         en: "أعضاء الفريق",
                         ar: "أعضاء الفريق",
@@ -168,18 +168,18 @@ const Numbers: React.FC<NumbersProps> = ({ language }) => {
 
                         return (
                             <div key={index}>
-                                <h3 className="font-bold text-7xl">
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-blue-600">
-                                        {count}+
-                                    </span>
-                                </h3>
-                                <p className="mt-4 text-xl font-medium text-gray-900">
-                                    {stat.label[language]}
-                                </p>
-                                <p className="text-base mt-0.5 text-gray-500">
-                                    {stat.description[language]}
-                                </p>
-                            </div>
+                            <h3 className="font-bold text-7xl">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d6c35a] to-[#A5993A] ">
+                                    {count}+
+                                </span>
+                            </h3>
+                            <p className="mt-4 text-xl font-medium text-gray-900">
+                                {stat.label[language]}
+                            </p>
+                            <p className="text-base mt-0.5 text-gray-500">
+                                {stat.description[language]}
+                            </p>
+                        </div>
                         );
                     })}
                 </div>
