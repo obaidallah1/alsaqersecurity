@@ -8,7 +8,7 @@ interface HeaderNavbarProps {
 const HeaderNavbar: React.FC<HeaderNavbarProps> = ({ language, setLanguage }) => {
   const translations = {
     en: {
-      header: "Alsaqer Security Services",
+      header: "Alsaqr Security Services",
       home: "Home",
       about: "About Us",
       services: "Our Services",
@@ -53,11 +53,17 @@ const HeaderNavbar: React.FC<HeaderNavbarProps> = ({ language, setLanguage }) =>
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top if no section found
     }
   };
 
   const handleLinkClick = (section: keyof typeof t) => {
-    scrollToSection(section);
+    if (section === "home") {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top for Home
+    } else {
+      scrollToSection(section);
+    }
     setIsOpen(false);
   };
 
@@ -75,7 +81,7 @@ const HeaderNavbar: React.FC<HeaderNavbarProps> = ({ language, setLanguage }) =>
       <div className="container mx-auto flex justify-between items-center">
         <img 
           src="/icons/alsaqer.png" 
-          alt="Alsaqer Security Logo" 
+          alt="Alsaqr Security Logo" 
           className="h-12 transition-transform duration-300 transform hover:scale-110"
         />
         <div className="text-center">
@@ -153,20 +159,18 @@ const HeaderNavbar: React.FC<HeaderNavbarProps> = ({ language, setLanguage }) =>
                     {t[key as keyof typeof t]}
                   </button>
                 ))}
-                
-                  <button
-                    className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105 mb-2 w-full text-left"
-                    onClick={() => {setLanguage("en");  setDropdownOpen(false);}}
-                  >
-                    English
-                  </button>
-                  <button
-                    className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105 mb-2 w-full text-left"
-                    onClick={() => {setLanguage("ar");  setDropdownOpen(false);}}
-                  >
-                    العربية
-                  </button>
-               
+                <button
+                  className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105 mb-2 w-full text-left"
+                  onClick={() => {setLanguage("en");  setDropdownOpen(false);}}
+                >
+                  English
+                </button>
+                <button
+                  className="text-white hover:text-blue-400 transition duration-300 transform hover:scale-105 mb-2 w-full text-left"
+                  onClick={() => {setLanguage("ar");  setDropdownOpen(false);}}
+                >
+                  العربية
+                </button>
               </div>
             </div>
           )}
