@@ -74,7 +74,7 @@ const HeaderNavbar: React.FC<HeaderNavbarProps> = ({ language, setLanguage }) =>
     <header className="fixed top-0 left-0 right-0 bg-gray-900 text-white py-1 z-50 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <img 
-          src="/icons/alsaqer.avif" 
+          src="/icons/alsaqer.png" 
           alt="Alsaqer Security Logo" 
           className="h-12 transition-transform duration-300 transform hover:scale-110"
         />

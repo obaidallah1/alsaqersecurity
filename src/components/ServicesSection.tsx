@@ -50,9 +50,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
             {language === "ar" ? "خدماتنا" : "Our Services"}
           </h2>
         </div>
-        <div className="flex flex-wrap -mx-4">
+        <div className="flex flex-wrap justify-center -mx-4">
           {servicesData.map((service, index) => (
-            <div key={index} className="w-full md:w-1/3 px-4 mb-8">
+            <div key={index} className="w-full md:w-1/3 px-4 mb-8 flex justify-center"> {/* Added flex justify-center */}
               <GlareCard className="flex flex-col items-center justify-center p-6 bg-gray-100 border border-[#A5993A]">
                 <div className="img-box mb-4">
                   <img

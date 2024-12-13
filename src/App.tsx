@@ -32,17 +32,17 @@ const translations = {
       {
         title: "24/7 Availability",
         description: "We provide round-the-clock security services to ensure complete protection at all times. With our dedicated team available 24/7, you can have peace of mind knowing that your safety is our top priority, day or night.",
-        image: "/img/about-img.avif",
+        image: "/img/about-img.jpg",
       },
       {
         title: "Tailored Solutions",
         description: "We design innovative security solutions tailored to meet the specific needs of different sectors. Whether it's commercial, residential, or public safety, our customized approaches ensure that we address the unique challenges faced by each client.",
-        image: "/img/service-3.avif",
+        image: "/img/service-3.jpg",
       },
       {
         title: "Proven Experience",
         description: "With over 25 years of experience in civil security, we have established ourselves as leaders in the industry. Our extensive background allows us to understand and adapt to the evolving security landscape, ensuring that our clients receive the best protection possible.",
-        image: "/img/contact-bg.avif",
+        image: "/img/contact-bg.jpg",
       },
     ],
     contactTitle: "Contact Us",
@@ -79,17 +79,17 @@ const translations = {
       {
         title: "متوفرة على مدار الساعة",
         description: "نقدم خدمات أمنية مستمرة على مدار 24 ساعة لضمان الحماية الكاملة في جميع الأوقات. مع فريقنا المتخصص المتاح 24/7، يمكنك أن تشعر بالراحة علماً أن سلامتك هي أولويتنا القصوى.",
-        image: "/img/about-img.avif",
+        image: "/img/about-img.jpg",
       },
       {
         title: "حلول مخصصة",
         description: "نقوم بتصميم حلول أمنية مبتكرة مصممة لتلبية الاحتياجات المحددة لمختلف القطاعات. سواء كانت تجارية أو سكنية أو للسلامة العامة، تضمن نهجنا المخصص أننا نتعامل مع التحديات الفريدة التي يواجهها كل عميل.",
-        image: "/img/service-3.avif",
+        image: "/img/service-3.jpg",
       },
       {
         title: "خبرة مثبتة",
         description: "مع أكثر من 25 عامًا من الخبرة في الأمن المدني، أقمنا أنفسنا كقادة في الصناعة. تسمح لنا خلفيتنا الواسعة بفهم والتكيف مع المشهد الأمني المتطور، مما يضمن أن عملائنا يتلقون أفضل حماية ممكنة.",
-        image: "/img/contact-bg.avif",
+        image: "/img/contact-bg.jpg",
       },
     ],
     contactTitle: "تواصل معنا",
@@ -104,12 +104,11 @@ function App() {
   const [language, setLanguage] = useState<"en" | "ar">("ar");
   const t = translations[language];
   const backgroundImages = [
-    "/img/ss.avif",
-    "/img/hero-bg.avif",
-    "/img/banner.jpg",
-    "/img/carousel-1.avif"
+    "/img/ss.jpg",
+    "/img/hero-bg.jpg",
+    "/img/carousel-1.jpg"
   ];
-  const icon = "/icons/alsaqer.avif";
+  const icon = "/icons/alsaqer.png";
   const [currentImage, setCurrentImage] = useState(0);
   const [currentAboutText, setCurrentAboutText] = useState(t.aboutTexts[0]);
 
@@ -127,7 +126,7 @@ function App() {
   }, [currentImage, t.aboutTexts]);
 
   return (
-    <div dir={language === "ar" ? "rtl" : "ltr"} className="font-sans">
+    <div dir={language === "ar" ? "rtl" : "ltr"} className="font-cairo">
       {/* Language Switcher */}
       <HeaderNavbar language={language} setLanguage={setLanguage} />
       {/* Main Content */}
@@ -211,55 +210,58 @@ function App() {
 
       {/* Contact Section */}
       <section
-        id="contact"
-        className="bg-cover bg-center py-8"
-        style={{
-          backgroundImage: 'url(/img/banner.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="container mx-auto px-4 md:px-8 relative">
-          <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
-          <div className="relative z-10 bg-white bg-opacity-75 rounded-lg p-6">
-            <h2 className="text-2xl font-bold mb-4 text-center text-gray-900">{t.contactTitle}</h2>
-            <div className="flex flex-col md:flex-row md:justify-between gap-4">
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 flex items-center">
-                  <i className="fas fa-envelope mr-2"></i>
-                  {t.email}
-                </h3>
-                <a className="text-blue-600 hover:text-blue-400" href="mailto:info@alsaqersecurity.com">
-                  info@alsaqersecurity.com
-                </a>
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 flex items-center">
-                  <i className="fab fa-whatsapp mr-2"></i>
-                  {t.phone}
-                </h3>
-                <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`}style={{ direction: 'ltr' }}>
-                  <a
-                    href="https://wa.me/967737179330"
-                    className="text-gray-800 hover:text-blue-600"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    +967 737 179 330
-                  </a>
-                </p>
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 flex items-center">
-                  <i className="fas fa-map-marker-alt mr-2"></i>
-                  {t.location}
-                </h3>
-                <p className="text-gray-800">{t.address.join(", ")}</p>
-              </div>
-            </div>
-          </div>
+  id="contact"
+  className="bg-cover bg-center py-8"
+  style={{
+    backgroundImage: 'url(/img/banner.jpg)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  <div className="container mx-auto px-4 md:px-8 relative">
+    <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+    <div className="relative z-10 bg-white bg-opacity-75 rounded-lg p-6">
+      <h2 className="text-2xl font-bold mb-4 text-center text-gray-900">{t.contactTitle}</h2>
+      <div className="flex flex-col md:flex-row md:justify-between gap-6">
+        <div className="flex-1 mb-4 md:mb-0">
+        <i className="fas fa-envelope mr-4"></i>
+          <h3 className="font-semibold text-gray-900 flex items-center mb-2">
+           {/* Increased margin to 4 */}
+            <span className={`${language === 'ar' ? 'text-right' : 'text-left'}`}>{t.email}</span>
+          </h3>
+          <a className="text-blue-600 hover:text-blue-400" href="mailto:info@alsaqersecurity.com">
+            info@alsaqersecurity.com
+          </a>
         </div>
-      </section>
+        <div className="flex-1 mb-4 md:mb-0">
+        <i className="fab fa-whatsapp mr-4"></i>
+          <h3 className="font-semibold text-gray-900 flex items-center mb-2">
+             {/* Increased margin to 4 */}
+            <span className={`${language === 'ar' ? 'text-right' : 'text-left'}`}>{t.phone}</span>
+          </h3>
+          <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: 'ltr' }}>
+            <a
+              href="https://wa.me/967737179330"
+              className="text-gray-800 hover:text-blue-600"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              +967 737 179 330
+            </a>
+          </p>
+        </div>
+        <div className="flex-1 mb-4 md:mb-0 ">
+        <i className="fas fa-map-marker-alt mr-4"></i>
+          <h3 className="font-semibold text-gray-900 flex items-center mb-2">
+            {/* Increased margin to 4 */}
+            <span className={`${language === 'ar' ? 'text-right' : 'text-left'}`}>{t.location}</span>
+          </h3>
+          <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'}`}>{t.address.join(", ")}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <div className="my-4 border-t border-[#A5993A]"></div>
       {/* Footer */}
@@ -268,7 +270,7 @@ function App() {
   href={`tel:${'+967737179330'}`}
   className="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-lg flex items-center justify-center transition group bg-cover bg-center z-50"
   style={{
-    backgroundImage: `url('/icons/alsaqer.avif')`,
+    backgroundImage: `url('/icons/alsaqer.jpg')`,
   }}
 >
   <div className="flex items-center justify-center w-full h-full transition-all duration-300 group-hover:bg-[#8f7a2e] group-hover:rounded-full">
