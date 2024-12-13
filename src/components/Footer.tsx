@@ -59,10 +59,22 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                     <p className="m-0 text-gray-300 mb-2">{t.contact.address}</p>
                     <div className="flex flex-col md:flex-row md:justify-center md:items-center">
                         <p className="m-0 text-gray-300 md:mr-4 mb-2" style={{ direction: 'ltr' }}>
-                            <i className="fa fa-phone-alt mr-2"></i>{t.contact.phone1}
+                            <i className="fa fa-phone-alt mr-2"></i>
+                            <a 
+                                className="text-gray-300 hover:text-blue-600"
+                                href={`tel:${t.contact.phone1.replace(/\s+/g, '')}`} // Remove spaces for the tel link
+                            >
+                                {t.contact.phone1}
+                            </a>
                         </p>
                         <p className="m-0 text-gray-300 mb-2" style={{ direction: 'ltr' }}>
-                            <i className="fa fa-phone-alt mr-2"></i>{t.contact.phone2}
+                            <i className="fa fa-phone-alt mr-2"></i>
+                            <a 
+                                className="text-gray-300 hover:text-blue-600"
+                                href={`tel:${t.contact.phone2.replace(/\s+/g, '')}`} // Remove spaces for the tel link
+                            >
+                                {t.contact.phone2}
+                            </a>
                         </p>
                     </div>
                     <p className="m-0 text-gray-300 mb-2">
