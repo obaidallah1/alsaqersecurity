@@ -242,7 +242,7 @@ function App() {
           <p className={`text-gray-800 ${language === 'ar' ? 'text-right' : 'text-left'} mb-2`} style={{ direction: 'ltr' }}>
             <a
               href="https://wa.me/967737179330"
-              className="text-gray-800 hover:text-blue-600"
+              className="text-blue-600 hover:text-blue-400"
               target="_blank"
               rel="noopener noreferrer"
             >
