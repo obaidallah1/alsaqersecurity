@@ -106,6 +106,8 @@ function App() {
   const backgroundImages = [
     "/img/ss.avif",
     "/img/hero-bg.avif",
+    "/img/banner.jpg",
+    "/img/carousel-1.avif"
   ];
   const icon = "/icons/alsaqer.avif";
   const [currentImage, setCurrentImage] = useState(0);
@@ -212,7 +214,7 @@ function App() {
         id="contact"
         className="bg-cover bg-center py-8"
         style={{
-          backgroundImage: 'url(/img/carousel-1.avif)',
+          backgroundImage: 'url(/img/banner.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
