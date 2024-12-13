@@ -104,10 +104,10 @@ function App() {
   const [language, setLanguage] = useState<"en" | "ar">("ar");
   const t = translations[language];
   const backgroundImages = [
-    "/img/ss.jpg",
-    "/img/hero-bg.jpg",
+    "/img/ss.avif",
+    "/img/hero-bg.avif",
   ];
-  const icon = "/icons/alsaqer.png";
+  const icon = "/icons/alsaqer.avif";
   const [currentImage, setCurrentImage] = useState(0);
   const [currentAboutText, setCurrentAboutText] = useState(t.aboutTexts[0]);
 
