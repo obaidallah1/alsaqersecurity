@@ -17,7 +17,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
   return (
     <section
       id="about"
-      className="relative mt-20 pt-8 mb-12 flex flex-col md:flex-row h-auto md:h-[600px] bg-cover rounded-lg border border-[#8f7a2e] border-opacity-50 shadow-lg"
+      className="relative mt-20  pt-8 mb-12 flex flex-col md:flex-row h-auto md:h-[600px] bg-cover rounded-lg border border-[#8f7a2e] border-opacity-50 shadow-lg"
     >
       {/* Background Image Container */}
       <AnimatePresence>
@@ -39,7 +39,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
       </AnimatePresence>
 
       {/* Icon Container */}
-      <div className="relative z-10 flex items-center justify-center w-full md:w-1/2 p-4 md:p-6 max-h-[300px] md:max-h-none">
+      <div className="relative mb-auto  z-10 flex items-center justify-center w-full md:w-1/2 p-4 md:p-6 max-h-[300px] md:max-h-none">
         <AnimatePresence>
           <motion.div
             key={icon}
@@ -60,7 +60,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
 
       {/* Text Container */}
       <motion.div
-        className="relative z-20 w-full md:w-1/2 h-[140px] md:h-[400px] max-w-[500px] p-4 md:p-6 flex flex-col justify-center bg-white bg-opacity-90 rounded-lg shadow-md border border-[#A5993A] mx-auto md:ml-0 md:mr-0"
+        className="relative  z-20 w-full md:w-1/2 h-[140px] md:h-[400px] max-w-[500px] p-4 md:p-6 flex flex-col justify-center bg-white bg-opacity-90 rounded-lg shadow-md border border-[#A5993A] mx-auto md:ml-0 md:mr-0"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
