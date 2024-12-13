@@ -14,9 +14,25 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false); // Track if the view is mobile
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Check if the screen size is mobile
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    handleResize(); // Run initially
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return; // Only enable the observer on mobile
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -35,7 +51,7 @@ export const HoverEffect = ({
     return () => {
       elements?.forEach((el) => observer.unobserve(el));
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div
@@ -50,6 +66,12 @@ export const HoverEffect = ({
           key={item.title}
           className="relative group block p-2 h-full w-full card-item"
           data-index={idx}
+          onMouseEnter={() => {
+            if (!isMobile) setActiveIndex(idx); // Hover effect for desktop
+          }}
+          onMouseLeave={() => {
+            if (!isMobile) setActiveIndex(null); // Clear hover effect for desktop
+          }}
         >
           <AnimatePresence>
             {activeIndex === idx && (
