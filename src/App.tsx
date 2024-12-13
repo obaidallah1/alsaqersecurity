@@ -270,7 +270,7 @@ function App() {
   href={`tel:${'+967737179330'}`}
   className="fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-lg flex items-center justify-center transition group bg-cover bg-center z-50"
   style={{
-    backgroundImage: `url('/icons/alsaqer.jpg')`,
+    backgroundImage: `url('/icons/alsaqer.png')`,
   }}
 >
   <div className="flex items-center justify-center w-full h-full transition-all duration-300 group-hover:bg-[#8f7a2e] group-hover:rounded-full">
