@@ -132,14 +132,14 @@ function App() {
       <main className="container mx-auto px-4 py-8">
         {/* About Section */}
         <section
-          id="about"
-          className="relative mt-8 pt-8 mb-12 flex flex-col md:flex-row h-auto md:h-[600px] bg-cover"
-          style={{
-            backgroundImage: `url(${backgroundImages[currentImage]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
+  id="about"
+  className="relative mt-20 pt-8 mb-12 flex flex-col md:flex-row h-auto md:h-[600px] bg-cover rounded-lg border border-[#8f7a2e] border-opacity-50 shadow-lg"
+  style={{
+    backgroundImage: `url(${backgroundImages[currentImage]})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
           {/* Background Image Container */}
           <motion.div
             className="relative w-full flex items-center justify-center mb-4 md:mb-0"
@@ -160,7 +160,7 @@ function App() {
 
           {/* Text Container */}
           <motion.div
-            className="relative z-10 w-full p-4 md:p-6 flex flex-col justify-center bg-white bg-opacity-90 rounded-lg shadow-md border border-[#A5993A] mt-4 mb-4 md:mt-0 md:mb-0"
+            className="relative z-10 w-full p-4 md:p-6 flex flex-col justify-center bg-white bg-opacity-90 rounded-lg shadow-md border border-[#A5993A] mt-4 mb-auto ml-auto mr-auto  md:mt-0 md:mb-0"
             initial={{ opacity: 0 }}  // Start opacity
             animate={{ opacity: 1 }}   // End opacity
             exit={{ opacity: 0 }}      // Exit opacity for fade-out effect
@@ -180,7 +180,12 @@ function App() {
 
         <div className="my-4 border-t border-[#A5993A]"></div>
         <section id="mission" className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">{t.missionTitle}</h2>
+        <h2
+  className="text-2xl font-bold mb-4 text-black"
+  style={{ textDecoration: "underline", textDecorationColor: "#8f7a2e" }}
+>
+  {t.missionTitle}
+</h2>
           <p className="text-gray-700">{t.missionText}</p>
         </section>
         <div className="my-4 border-t border-[#A5993A]"></div>
